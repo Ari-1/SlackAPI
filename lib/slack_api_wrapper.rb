@@ -12,6 +12,9 @@ class SlackApiWrapper
       raise StandardError.new(response["error!"])
     end
 
+    # OR
+    # raise_on_error(response)
+
     return response["channels"].map do |raw_channel|
       Channel.from_api(raw_channel)
     end
@@ -32,4 +35,6 @@ class SlackApiWrapper
     end
 
   end
+
+
 end
